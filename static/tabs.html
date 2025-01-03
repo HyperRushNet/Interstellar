@@ -19,33 +19,24 @@
     <nav class="nav" id="right-side-nav">
       <ul id="tab-list"></ul>
       <button title="add-tab" id="add-tab">
-        <i class="fa-solid fa-plus"></i>
       </button>
     </nav>
     <div class="nav-bar">
       <div class="nav-container">
         <div class="nav-left">
-          <button
-            title="Home Page"
-            id="home-page"
-            class="nav-button"
-            onclick="Home()"
-          >
-            <i class="fa-solid fa-house"></i>
-          </button>
-          <button title="Back Arrow" class="nav-button" onclick="goBack()">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button
-            title="Forward Arrow"
-            class="nav-button"
-            onclick="goForward()"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button title="Reload" onclick="reload()" class="nav-button">
-            <i class="fa-solid fa-rotate-right"></i>
-          </button>
+          <style>
+        body {
+   top: -85px;
+   right: 0px;
+   left: 0px;
+   position: absolute;
+   height: calc(100% + 85px);
+
+        }
+
+          </style>
+      
+          
           <form id="fv" class="navpost" method="POST">
             <input
               id="iv"
@@ -56,14 +47,8 @@
           </form>
         </div>
         <div class="nav-right">
-          <button
-            title="Fullscreen"
-            id="fullscreen-button"
-            class="nav-button nav-btn-right"
-            onclick="FS()"
-          >
-            <i class="fa-solid fa-expand"></i>
-          </button>
+          
+         
           <button
             title="Window Popout"
             id="popout-button"
@@ -77,15 +62,8 @@
             class="nav-button nav-btn-right"
             onclick="eToggle()"
           >
-            <i class="fa-solid fa-code"></i>
-          </button>
-          <button
-            title="Tabs"
-            id="tabs-button"
-            class="nav-button nav-btn-right"
-          >
-            <i class="fa-solid fa-magnifying-glass-minus"></i>
-          </button>
+            
+          
         </div>
       </div>
     </div>
