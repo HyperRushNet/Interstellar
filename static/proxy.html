@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The HyperRush Proxyy</title>
+    <title>The HyperRush Proxy</title>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/global.css?v=6" />
@@ -25,16 +28,14 @@
             const url = urlParams.get('url');  // Verkrijg de waarde van de "url" parameter
 
             if (url) {
-                document.body.innerHTML = `<h1>You will be redirected to <a href="${url}" target="_blank">${url}</a> soon!</h1>`;
                 go(url);
             } else {
-                // Als er geen URL is opgegeven, laad een standaardpagina of toon een foutmelding
-                document.body.innerHTML = "<h1>No url provided..</h1>";
+                go("https://google.com");
             }
         };
     </script>
 </head>
 <body>
-    <h1>Loading...</h1>
+    <h1></h1>
 </body>
 </html>
