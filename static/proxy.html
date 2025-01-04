@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The HyperRush Proxy</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/global.css?v=6" />
+    <link rel="stylesheet" href="/assets/css/error.css?v=2" />
+    <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
+    
+    <!-- Scripts -->
+    <script src="assets/js/f.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734" crossorigin="anonymous"></script>
+    <script src="/assets/js/i.js?v=02"></script>
+    <script src="/assets/ultra/bundle.js?v=10-02-2024"></script>
+    <script src="/assets/ultra/config.js?v=10-02-2024"></script>
+    <script src="/assets/js/mv.js?v=002"></script>
+
+    <script>
+        window.onload = function() {
+            // Haal de URL op uit de querystring
+            const urlParams = new URLSearchParams(window.location.search);
+            const url = urlParams.get('url');  // Verkrijg de waarde van de "url" parameter
+
+            if (url) {
+                document.body.innerHTML = `<h1>You will be redirected to <a href="${url}" target="_blank">${url}</a> soon!</h1>`;
+                go(url);
+            } else {
+                // Als er geen URL is opgegeven, laad een standaardpagina of toon een foutmelding
+                document.body.innerHTML = "<h1>No url provided..</h1>";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Loading...</h1>
+</body>
+</html>
