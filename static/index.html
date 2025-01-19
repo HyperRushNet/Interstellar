@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interstellar Proxy - Search</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* General reset and font settings */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #0b0b0b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* Background image with blur effect */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://api.codetabs.com/v1/proxy/?quest=https://hyperrushnet.github.io/startpageimg.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(0px);
+            z-index: -3;
+        }
+
+        /* Particles container */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* Main content container */
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* Main heading */
+        h1 {
+            font-size: 48px;
+            color: #00ff99;
+            text-shadow: 0px 0px 20px rgba(0, 255, 153, 0.7), 0px 0px 30px rgba(0, 255, 153, 0.3);
+            margin-bottom: 30px;
+        }
+
+        /* Input field styles */
+        input[type="text"] {
+            padding: 16px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: 2px solid #00ff99;
+            border-radius: 12px;
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 255, 153, 0.6);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer text styling */
+        .footer {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #00ff99;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional styling for the dark space-like effect */
+        .space-effect {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background and particles -->
+    <div class="background"></div>
+    <div id="particles-js"></div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>INTERSTELLAR</h1>
+        <input type="text" id="searchInput" placeholder="Enter your search or URL..." />
+    </div>
+
+    <script>
+        // Function to get the query parameter
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to check if the URL is valid (only fetch the first 40 characters of the response)
+        function checkUrlValidity(url) {
+            // Check if the input starts with "url:" and handle it accordingly
+            if (url.includes(".")) {
+                // If valid, redirect to the endpoint with the URL parameter
+                window.location.href = `/proxy.html/?url=${encodeURIComponent(url)}`;
+            } else {
+                // If not a URL, perform a search
+                window.location.href = `/proxy.html/?url=${encodeURIComponent(url)}`;
+            }
+        }
+
+       
+
+        // Add an event listener for Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('searchInput').value;
+                if (input.trim() !== "") {
+                    checkUrlValidity(input);  // Check the validity of the entered URL
+                } else {
+                    alert("Please enter a search term.");
+                }
+            }
+        });
+        
+        // Particles.js configuration for space-like particles
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100, // Number of particles
+                    density: {
+                        enable: true,
+                        value_area: 700
+                    }
+                },
+                shape: {
+                    type: "circle", // Use circle shapes for particles
+                    stroke: {
+                        width: 0,
+                        color: "#00ff99" // Neon green
+                    }
+                },
+                opacity: {
+                    value: 0.8, // Particles are visible
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 6, // Size of the particles
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 4,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: false // Disable connecting lines
+                },
+                move: {
+                    enable: true,
+                    speed: 0.5, // Slow-moving particles
+                    direction: "bottom",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "window",
+                events: {
+                    onhover: {
+                        enable: false
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                },
+                modes: {
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+
+</body>
+</html>
