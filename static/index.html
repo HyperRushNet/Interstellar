@@ -133,10 +133,10 @@
             // Check if the input starts with "url:" and handle it accordingly
             if (url.includes(".")) {
                 // If valid, redirect to the endpoint with the URL parameter
-                window.location.href = `/proxy.html/?url=${encodeURIComponent(url)}`;
+                window.location.href = `/proxy.html?url=${encodeURIComponent(url)}`;
             } else {
                 // If not a URL, perform a search
-                window.location.href = `/proxy.html/?url=${encodeURIComponent(url)}`;
+                window.location.href = `/proxy.html?url=${encodeURIComponent(url)}`;
             }
         }
 
